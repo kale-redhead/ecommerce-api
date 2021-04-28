@@ -1,14 +1,14 @@
 const express = require('express');
-const users = require('../products.json');
+const getProducts = require('./getProducts');
+const getProduct = require('./getProduct');
 const app = express();
 
 app.use(express.json());
 
-app.get('/api/products', (req, res) => {
-    res.status(200).send(products);
-})
+app.get('/api/products', getProducts);
+app.get('api/products/:id', getProduct);
 
-// app.get('/api/oneuser/:id', (req, res) => {
+// app.get('/api/products/:id', (req, res) => {
 //     console.log('PARAMS ', req.params);
 //     console.log('QUERY ', req.query);
 //     console.log('BODY ', req.body);
